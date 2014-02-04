@@ -1,0 +1,58 @@
+# Start message
+startup_message off
+
+# caption是screen分頁的狀態列
+# u/underline, G: green, %n window no, %t window title
+# %-w, 所有目前window之前的window, %+w, 所有目前window之後的window
+caption always "%{=u .G} %-w%<%{=ub .y}%n %t%{=u .G}%+w "
+
+# hardstatus是screen最下面那一條狀態列
+# %{= .y}的意思是後面變成黃色(y = yellow)
+# %l 系統loading, %H hostname ...其餘自己man screen到ESCAPSE STRING部份看
+hardstatus alwayslastline "%{= .K} [%l]%<%=%{= .W}@%H %=%{= .y} %Y/%m/%d%{= .m} %0c:%s "
+
+# Set default encoding using utf8
+defutf8 on
+
+# Refresh the display when exiting programs
+altscreen on
+
+# Dynamic title
+shelltitle '$ |bash'
+
+# Disable vbell
+vbell off
+
+# Keboard binding
+# bind Alt+left to move to previous window
+bindkey "^[[1;3D" prev
+# bind Alt+right to move to next window
+bindkey "^[[1;3C" next 
+# bind Alt`~= to screen0~12
+bindkey "^[0" select 0
+bindkey "^[1" select 1
+bindkey "^[2" select 2
+bindkey "^[3" select 3
+bindkey "^[4" select 4
+bindkey "^[5" select 5
+bindkey "^[6" select 6
+bindkey "^[7" select 7
+bindkey "^[8" select 8
+bindkey "^[9" select 9
+
+# bind F12 to detach screen session (to background)
+#bindkey -k F2 detach
+# F12 不知道被哪個程式綁定成~, 暫時不理它吧
+
+# bind F9 to create a new screen
+bindkey -k k9 screen
+# bind F10 to rename current screen window
+bindkey -k k; title
+
+# C-a b --(switch to)--> view big5 data
+bind b encoding big5 utf8
+# C-a u --(switch to)--> view utf8 data
+bind u encoding utf8 utf8
+
+# Let screen can be scrolled by mouse wheel
+termcapinfo xterm* ti@:ta@

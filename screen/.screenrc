@@ -1,1 +1,36 @@
-/home/yenchen/.screenrc
+startup_message off             # Turn off start message
+defscrollback 5000              # 可以滾回去5000行
+shelltitle '$ |bash'            # Dynamic window titled for running program
+ 
+#hardstatus alwayslastline "[%l]%`%-w%{=b bw}%n %t%{-}%+w" 
+hardstatus alwayslastline '%{= kw}[%= %{= kw}%?%-Lw%?%{= kW}%{g}%n*%f %t%{= kw}%?%+Lw%?%= ][ %{y}%l%{w} ]%{w}[%{c} %Y/%m/%d %C %A %{w}]%{w}'
+
+# 讓screen支援256色
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+# 讓screen支援滾輪上下移動，
+# 但記得要去Terminal>Edit>Profile Preference>Scrolling>Use keystrokes to scroll...(uncheck)
+termcapinfo xterm ti@:te@
+
+# 預設使用utf8
+defutf8 on
+
+
+##   Keybindings   ##
+# F7='k7', F8='k8', F9='k9', F10='k;', F11='F1', F12='F2'
+# Good things to bind to hotkeys:
+#  prev (go to previous screen)
+#  next (go to next screen)
+#  kill (kill this window)
+#  screen (create a new window)
+#  title (rename the current window)
+#  detach (detach this session from this terminal)
+ 
+# Alt + left
+bindkey ^[[1;3D prev
+
+#Alt + right
+bindkey ^[[1;3C next
+ 
+bindkey -k k7 title
+bindkey -k k8 screen

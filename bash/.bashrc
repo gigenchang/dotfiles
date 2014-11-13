@@ -114,3 +114,6 @@ if ! shopt -oq posix; then
 fi
 
 export PS1="[\[\e[36m\]\A\[\e[m\]]\[\e[31m\]\u\[\e[m\]\[\e[33m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]\[\e[37m\]:\[\e[m\]\[\e[35m\]\w\[\e[m\]\\$ "
+
+# for arm toolchain http://wiki.csie.ncku.edu.tw/embedded/Lab32
+#export PATH=/usr/local/csl/arm-2014.05/bin:$PATH

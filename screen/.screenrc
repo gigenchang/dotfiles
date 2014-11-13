@@ -3,7 +3,20 @@ defscrollback 5000              # 可以滾回去5000行
 shelltitle '$ |bash'            # Dynamic window titled for running program
  
 #hardstatus alwayslastline "[%l]%`%-w%{=b bw}%n %t%{-}%+w" 
-hardstatus alwayslastline '%{= kw}[%= %{= kw}%?%-Lw%?%{= kW}%{g}%n*%f %t%{= kw}%?%+Lw%?%= ][ %{y}%l%{w} ]%{w}[%{c} %Y/%m/%d %C %A %{w}]%{w}'
+#hardstatus alwayslastline '%{= kw}[%= %{= kw}%?%-Lw%?%{= kW}%{g}%n*%f %t%{= kw}%?%+Lw%?%= ][ %{y}%l%{w} ]%{w}[%{c} %Y/%m/%d %C %A %{w}]%{w}'
+hardstatus alwayslastline '%{= kw}[%= %?%{= kw}%-w%?%{g}%n*%f%t%?%{= kw}%+w%?%= %{= kw}][ %{y}%l%{w} ]%{w}[%{c} %Y/%m/%d %C %A %{w}]%{w}'
+
+# %{= kw} black bg/white fg
+# %= padding
+# %? 如果%?和下一個%?之間有內容才顯示
+# %{g} set color to bright green
+# %n window number
+# %f flag of window
+# %t window title
+# -w 直到目前的winodw(不含目前)
+# +w 目前的window之後(不含目前)
+
+
 
 # 讓screen支援256色
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
